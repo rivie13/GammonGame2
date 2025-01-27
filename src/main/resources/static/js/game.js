@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
-    initializeBoard();
+    const container = document.querySelector('.game-container');
+    const board = new Board();
+    container.appendChild(board.element);
+    board.setupInitialPosition();
 });
 
 function initializeBoard() {
