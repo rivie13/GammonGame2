@@ -1,8 +1,21 @@
 class Board {
+    static instance = null;
+
     constructor() {
+        if (Board.instance) {
+            return Board.instance;
+        }
+        Board.instance = this;
         this.points = new Map();
         this.element = this.createBoardElement();
         this.initializePoints();
+    }
+
+    static getInstance() {
+        if (!Board.instance) {
+            new Board();
+        }
+        return Board.instance;
     }
 
     createBoardElement() {
